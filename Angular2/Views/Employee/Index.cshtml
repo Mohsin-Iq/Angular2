@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Angular2.Models.Employee >
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<button class="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Add NEW</button>
+<div class=" table-responsive" ng-controller="EmpCtrl">
+    <table class="table table-summary custom-table mb-0 aaa" id="employee">
+        <thead>
+            <tr>
+                <th> EmployeeID </th>
+                <th> Name </th>
+                <th>Email</th>
+                <th> Phone</th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody> </tbody>
+    </table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="EmployeeID">EmployeeID</label>
+                        <input type="text" class="form-control" id="EmployeeID" placeholder="EmployeeID" disabled="disabled" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name" />
+                    </div> <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control" id="email" placeholder="Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone">Phone</label>
+                        <input type="text" class="form-control" id="Phone" placeholder="Phone" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button saveData " data-bs-dismiss="modal">Add</button>
+                <button type="button" class="button " data-bs-dismiss="modal">Close</button>
+                <button type="button" class="button" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  @section Scripts {
+    <script src="~/js/employee.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            LodData();
+        });
+    </script>
+    }  
